@@ -10,4 +10,4 @@ A fully accessible, mobile-friendly, WCAG 2.2 AA-compliant TypeScript web applic
 - Strict WCAG 2.2 AA accessibility.
 - Unit and accessibility tests using Vitest and jest-axe.
 - Ready for static deployment (e.g., GitHub Pages).
-# runes
+- Available in three languages - EN, DE, РУ
