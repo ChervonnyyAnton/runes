@@ -1,6 +1,7 @@
 import { runes, Rune } from "./runeData";
 
-let currentLang: "en" | "de" | "ru" = "en";
+let currentLang: "en" | "de" | "ru" =
+	(localStorage.getItem("runeLang") as "en" | "de" | "ru") || "en";
 
 function getRandomRune(): { rune: Rune; orientation: "upright" | "reversed" } {
 	const index = Math.floor(Math.random() * runes.length);
@@ -88,11 +89,16 @@ document.addEventListener("DOMContentLoaded", () => {
 	const langSelect = document.getElementById(
 		"lang-select"
 	) as HTMLSelectElement;
+	const shareBtn = document.getElementById("share-btn") as HTMLButtonElement;
+
+	let lastRune: Rune | null = null;
+	let lastOrientation: "upright" | "reversed" = "upright";
 
 	if (langSelect) {
 		langSelect.value = currentLang;
 		langSelect.addEventListener("change", (e) => {
 			currentLang = langSelect.value as "en" | "de" | "ru";
+			localStorage.setItem("runeLang", currentLang);
 			updateUIText();
 			clearRune();
 		});
@@ -101,8 +107,65 @@ document.addEventListener("DOMContentLoaded", () => {
 	drawBtn.addEventListener("click", () => {
 		const { rune, orientation } = getRandomRune();
 		showRune(rune, orientation);
+		const runeResult = document.getElementById("rune-result");
+		if (runeResult) {
+			runeResult.classList.remove("fade-in");
+			// Force reflow to restart animation
+			// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+			runeResult.offsetWidth;
+			runeResult.classList.add("fade-in");
+		}
+		lastRune = rune;
+		lastOrientation = orientation;
 		drawBtn.focus();
 	});
+
+	if (shareBtn) {
+		shareBtn.addEventListener("click", async () => {
+			if (!lastRune) return;
+			let reversedText = "";
+			if (lastOrientation === "reversed") {
+				if (
+					lastRune.reversedDescription?.[currentLang] &&
+					lastRune.reversedDescription[currentLang].trim().length > 0
+				) {
+					reversedText = lastRune.reversedDescription[currentLang];
+				} else {
+					reversedText =
+						{
+							en: "This rune traditionally has no reversed meaning. Its interpretation remains the same.",
+							de: "Diese Rune hat traditionell keine umgekehrte Bedeutung. Ihre Interpretation bleibt gleich.",
+							ru: "У этой руны традиционно нет перевёрнутого значения. Толкование остаётся тем же.",
+						}[currentLang] + "\n" + lastRune.description[currentLang];
+				}
+			}
+			const runeText =
+				`${lastRune.symbol} ${lastRune.name[currentLang]} (${lastRune.transliteration})\n` +
+				(lastOrientation === "reversed" ? reversedText : lastRune.description[currentLang]);
+
+			async function copyToClipboard(text: string) {
+				try {
+					await navigator.clipboard.writeText(text);
+					shareBtn.textContent = "Copied!";
+					setTimeout(() => {
+						shareBtn.textContent = "📋 Copy/Share";
+					}, 1200);
+				} catch (err) {
+					alert("Failed to copy to clipboard.");
+				}
+			}
+
+			if (navigator.share) {
+				try {
+					await navigator.share({ text: runeText });
+				} catch (e) {
+					await copyToClipboard(runeText);
+				}
+			} else {
+				await copyToClipboard(runeText);
+			}
+		});
+	}
 
 	// Accessibility: clear rune on page load
 	clearRune();
