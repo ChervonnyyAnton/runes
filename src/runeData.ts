@@ -146,7 +146,11 @@ export const runes: readonly Rune[] = [
 			de: "Gebo bedeutet 'Geschenk' und steht für Großzügigkeit, Austausch und Partnerschaft. Sie ist die Rune des Gleichgewichts, der Gegenseitigkeit und harmonischer Beziehungen. Gebo ermutigt dazu, frei zu geben und zu empfangen und symbolisiert die Verbundenheit aller Dinge. Sie kann auch auf Verträge, Allianzen oder die Notwendigkeit hinweisen, das Gleichgewicht in Beziehungen zu wahren.",
 			ru: "Гебо означает 'дар' и символизирует щедрость, обмен и партнёрство. Это руна баланса, взаимности и гармоничных отношений. Гебо призывает свободно давать и получать, символизируя взаимосвязь всего сущего. Может также указывать на договоры, союзы или необходимость поддерживать баланс в отношениях.",
 		},
-		// Gebo is traditionally not reversed
+		reversedDescription: {
+			en: "",
+			de: "",
+			ru: "",
+		},
 	},
 	{
 		symbol: "ᚹ",
@@ -313,7 +317,11 @@ export const runes: readonly Rune[] = [
 			de: "Sowilo bedeutet 'Sonne' und ist die Rune des Erfolgs, der Vitalität und der Ganzheit. Sie steht für Licht, Klarheit und das Erreichen von Zielen. Sowilo bringt Energie, Gesundheit und ein Gefühl von Zielstrebigkeit. Sie ist die Rune des Sieges, der Ehre und der reinigenden Kraft der Sonne.",
 			ru: "Совило означает 'солнце' и является руной успеха, жизненной силы и целостности. Она символизирует свет, ясность и достижение целей. Совило приносит энергию, здоровье и ощущение смысла. Это руна победы, чести и очищающей силы солнца.",
 		},
-		// Sowilo is traditionally not reversed
+		reversedDescription: {
+			en: "",
+			de: "",
+			ru: "",
+		},
 	},
 	{
 		symbol: "ᛏ",
@@ -364,7 +372,7 @@ export const runes: readonly Rune[] = [
 		description: {
 			en: "Ehwaz means 'horse' and represents movement, progress, and partnership. It is the rune of trust, cooperation, and harmonious relationships. Ehwaz encourages adaptability, teamwork, and the journey towards new horizons. It may also signify travel or changes in one’s life path.",
 			de: "Ehwaz bedeutet 'Pferd' und steht für Bewegung, Fortschritt und Partnerschaft. Sie ist die Rune des Vertrauens, der Zusammenarbeit und harmonischer Beziehungen. Ehwaz ermutigt zu Anpassungsfähigkeit, Teamarbeit und der Reise zu neuen Horizonten. Sie kann auch auf Reisen oder Veränderungen im Lebensweg hinweisen.",
-			ru: "Эваз означает 'лошадь' и символизирует движение, прогресс и партнёрство. Это руна доверия, сотрудничества и гармоничных отношений. Эваз призывает к гибкости, командной работе и путешествию к новым горизонтам. Может также указывать на поездки или изменения в жизненном пути.",
+			ru: "Эваз означает 'лошадь' и символизирует движение, прогресс и партнёрство. Это руна доверия, сотрудничества и гармоничных отношений. Эваз призывает к гибкости, командной работе и путешествию к новым горизонтах. Может также указывать на поездки или изменения в жизненном пути.",
 		},
 		reversedDescription: {
 			en: "Reversed: Lack of progress, broken partnerships, or resistance to change. Can indicate being stuck, uncooperative, or facing travel delays.",
@@ -423,6 +431,11 @@ export const runes: readonly Rune[] = [
 			de: "Ingwaz ist die Rune des Gottes Ing und symbolisiert Fruchtbarkeit, Potenzial und inneres Wachstum. Sie steht für Reifung, Frieden und den Abschluss von Zyklen. Ingwaz ist mit Familie, Harmonie und der Pflege neuer Ideen oder Projekte verbunden. Sie markiert oft eine Zeit der Ruhe vor neuen Anfängen.",
 			ru: "Ингваз — руна бога Инга, символизирует плодородие, потенциал и внутренний рост. Она означает созревание, покой и завершение циклов. Ингваз связана с семьёй, гармонией и заботой о новых идеях или проектах. Часто указывает на период отдыха перед новыми начинаниями.",
 		},
+		reversedDescription: {
+			en: "",
+			de: "",
+			ru: "",
+		},
 	},
 	{
 		symbol: "ᛞ",
@@ -436,6 +449,11 @@ export const runes: readonly Rune[] = [
 			en: "Dagaz means 'day' and is the rune of breakthrough, transformation, and awakening. It represents hope, clarity, and the balance between opposites (night and day). Dagaz signifies new perspectives, enlightenment, and the successful resolution of difficulties. It marks the dawn after darkness.",
 			de: "Dagaz bedeutet 'Tag' und ist die Rune des Durchbruchs, der Transformation und des Erwachens. Sie steht für Hoffnung, Klarheit und das Gleichgewicht der Gegensätze (Nacht und Tag). Dagaz symbolisiert neue Perspektiven, Erleuchtung und die erfolgreiche Lösung von Schwierigkeiten. Sie markiert die Morgendämmerung nach der Dunkelheit.",
 			ru: "Дагаз означает 'день' и является руной прорыва, трансформации и пробуждения. Она символизирует надежду, ясность и баланс противоположностей (ночи и дня). Дагаз означает новые взгляды, просветление и успешное разрешение трудностей. Это рассвет после тьмы.",
+		},
+		reversedDescription: {
+			en: "",
+			de: "",
+			ru: "",
 		},
 	},
 	{

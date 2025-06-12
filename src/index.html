@@ -26,12 +26,25 @@
 			id="main-content"
 			tabindex="-1"
 		>
+			<!-- Language selector moved inside main for accessibility landmark compliance -->
+			<div id="lang-select-container">
+				<label for="lang-select">Language: </label>
+				<select
+					id="lang-select"
+					aria-label="Select language"
+				>
+					<option value="en">English</option>
+					<option value="de">Deutsch</option>
+					<option value="ru">Русский</option>
+				</select>
+			</div>
 			<h1 id="app-title">Elder Futhark Rune Revealer</h1>
 			<button
 				id="draw-btn"
 				aria-label="Draw a rune"
 				aria-describedby="draw-desc"
 			>
+				<span style="display: inline-block; vertical-align: middle">🔮</span>
 				Draw Rune
 			</button>
 			<div
