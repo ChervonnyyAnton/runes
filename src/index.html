@@ -26,17 +26,39 @@
 			id="main-content"
 			tabindex="-1"
 		>
-			<!-- Language selector moved inside main for accessibility landmark compliance -->
-			<div id="lang-select-container">
-				<label for="lang-select">Language: </label>
-				<select
-					id="lang-select"
-					aria-label="Select language"
+			<!-- Language selector as icon buttons -->
+			<div
+				id="lang-select-container"
+				role="group"
+				aria-label="Select language"
+			>
+				<button
+					class="lang-btn"
+					id="lang-en"
+					type="button"
+					aria-label="English"
+					title="English"
 				>
-					<option value="en">English</option>
-					<option value="de">Deutsch</option>
-					<option value="ru">Русский</option>
-				</select>
+					🇬🇧
+				</button>
+				<button
+					class="lang-btn"
+					id="lang-de"
+					type="button"
+					aria-label="Deutsch"
+					title="Deutsch"
+				>
+					🇩🇪
+				</button>
+				<button
+					class="lang-btn"
+					id="lang-ru"
+					type="button"
+					aria-label="Русский"
+					title="Русский"
+				>
+					🇷🇺
+				</button>
 			</div>
 			<h1 id="app-title">Elder Futhark Rune Revealer</h1>
 			<button

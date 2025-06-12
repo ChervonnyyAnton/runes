@@ -86,23 +86,33 @@ function updateUIText() {
 
 document.addEventListener("DOMContentLoaded", () => {
 	const drawBtn = document.getElementById("draw-btn") as HTMLButtonElement;
-	const langSelect = document.getElementById(
-		"lang-select"
-	) as HTMLSelectElement;
 	const shareBtn = document.getElementById("share-btn") as HTMLButtonElement;
+	const langBtns = [
+		document.getElementById("lang-en") as HTMLButtonElement,
+		document.getElementById("lang-de") as HTMLButtonElement,
+		document.getElementById("lang-ru") as HTMLButtonElement,
+	];
 
 	let lastRune: Rune | null = null;
 	let lastOrientation: "upright" | "reversed" = "upright";
 
-	if (langSelect) {
-		langSelect.value = currentLang;
-		langSelect.addEventListener("change", (e) => {
-			currentLang = langSelect.value as "en" | "de" | "ru";
+	langBtns.forEach((btn) => {
+		btn.addEventListener("click", () => {
+			const lang = btn.id.replace("lang-", "") as "en" | "de" | "ru";
+			currentLang = lang;
 			localStorage.setItem("runeLang", currentLang);
 			updateUIText();
 			clearRune();
+			langBtns.forEach((b) => b.classList.remove("active"));
+			btn.classList.add("active");
 		});
-	}
+	});
+	// Set initial active state
+	langBtns.forEach((btn) => {
+		const lang = btn.id.replace("lang-", "");
+		if (lang === currentLang) btn.classList.add("active");
+		else btn.classList.remove("active");
+	});
 
 	drawBtn.addEventListener("click", () => {
 		const { rune, orientation } = getRandomRune();
@@ -136,12 +146,16 @@ document.addEventListener("DOMContentLoaded", () => {
 							en: "This rune traditionally has no reversed meaning. Its interpretation remains the same.",
 							de: "Diese Rune hat traditionell keine umgekehrte Bedeutung. Ihre Interpretation bleibt gleich.",
 							ru: "У этой руны традиционно нет перевёрнутого значения. Толкование остаётся тем же.",
-						}[currentLang] + "\n" + lastRune.description[currentLang];
+						}[currentLang] +
+						"\n" +
+						lastRune.description[currentLang];
 				}
 			}
 			const runeText =
 				`${lastRune.symbol} ${lastRune.name[currentLang]} (${lastRune.transliteration})\n` +
-				(lastOrientation === "reversed" ? reversedText : lastRune.description[currentLang]);
+				(lastOrientation === "reversed"
+					? reversedText
+					: lastRune.description[currentLang]);
 
 			async function copyToClipboard(text: string) {
 				try {
