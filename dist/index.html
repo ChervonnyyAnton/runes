@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width,initial-scale=1.0"
+		/>
+		<title>Elder Futhark Rune Revealer</title>
+		<link
+			rel="icon"
+			href="favicon.ico"
+		/>
+		<script type="module" crossorigin src="/runes/assets/index-wwB9sR1v.js"></script>
+		<link rel="stylesheet" crossorigin href="/runes/assets/index-BlT8XBxf.css">
+	</head>
+	<body>
+		<a
+			href="#main-content"
+			class="skip-link"
+			>Skip to main content</a
+		>
+		<main
+			id="main-content"
+			tabindex="-1"
+		>
+			<h1 id="app-title">Elder Futhark Rune Revealer</h1>
+			<button
+				id="draw-btn"
+				aria-label="Draw a rune"
+				aria-describedby="draw-desc"
+			>
+				Draw Rune
+			</button>
+			<div
+				id="draw-desc"
+				class="sr-only"
+			>
+				Press to reveal a random Elder Futhark rune and its meaning. Result is
+				announced for screen readers.
+			</div>
+			<section
+				id="rune-result"
+				aria-live="polite"
+				aria-atomic="true"
+				aria-describedby="rune-desc"
+			>
+				<div
+					id="rune-symbol"
+					class="rune-symbol"
+				></div>
+				<div
+					id="rune-name"
+					class="rune-name"
+				></div>
+				<div
+					id="rune-desc"
+					class="rune-desc"
+				></div>
+			</section>
+			<footer>
+				<p>&copy; 2025 Elder Futhark Rune App.</p>
+			</footer>
+		</main>
+	</body>
+</html>
